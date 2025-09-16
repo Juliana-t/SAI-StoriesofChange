@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Accountability and Inclusion - Timor-Leste Stories of Change</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">SAI Timor-Leste</div>
+            <div class="mobile-menu-toggle">
+                <div class="hamburger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pages/dili.html">National Context</a></li>
+                <li><a href="pages/ermera.html">Municipality</a></li>
+                <li><a href="pages/suku1.html">Suku Stories</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="page-section active">
+        <div class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Social Accountability and Inclusion for Better Health Service in Timor-Leste</h1>
+                        <p>Stories of Change from our pilot design & implementation project</p>
+                        <p class="hero-subtitle">Click on any location to explore the stories of change</p>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="map-container">
+                            <div id="timor-map" class="leaflet-map"></div>
+                        </div>
+                        <div class="map-legend">
+                            <div class="legend-item">
+                                <div class="legend-icon capital-legend"></div>
+                                <span>National Context (Dili)</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-icon municipality-legend"></div>
+                                <span>Municipality (Ermera)</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-icon suku-legend"></div>
+                                <span>Suku Stories</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="intro-text">
+                <h2>Exploring Social Accountability at Multiple Levels</h2>
+                <p>Our approach works across different governance levels - from national policy context in Dili, through municipal coordination in Ermera, down to community-level implementation in individual Sukus. Click on any location above to explore the specific stories and mechanisms at each level.</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

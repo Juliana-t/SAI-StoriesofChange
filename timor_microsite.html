@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Accountability and Inclusion - Timor-Leste Stories of Change</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">SAI Timor-Leste</div>
+            <div class="mobile-menu-toggle">
+                <div class="hamburger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showPage('home')">Home</a></li>
+                <li><a href="#" onclick="showPage('dili')">National Context</a></li>
+                <li><a href="#" onclick="showPage('ermera')">Municipality</a></li>
+                <li><a href="#" onclick="showPage('suku1')">Suku Stories</a></li>
+            </ul>
+        </nav>
+    </header>
+
+            <!-- HOME PAGE -->
+    <section id="home" class="page-section active">
+        <div class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Social Accountability and Inclusion for Better Health Service in Timor-Leste</h1>
+                        <p>Stories of Change from our pilot design & implementation project</p>
+                        <p class="hero-subtitle">Click on any location to explore the stories of change</p>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="map-container">
+                            <div id="timor-map" class="leaflet-map"></div>
+                        </div>
+                        <div class="map-legend">
+                            <div class="legend-item">
+                                <div class="legend-icon capital-legend"></div>
+                                <span>National Context (Dili)</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-icon municipality-legend"></div>
+                                <span>Municipality (Ermera)</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-icon suku-legend"></div>
+                                <span>Suku Stories</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="intro-text">
+                <h2>Exploring Social Accountability at Multiple Levels</h2>
+                <p>Our approach works across different governance levels - from national policy context in Dili, through municipal coordination in Ermera, down to community-level implementation in individual Sukus. Click on any location above to explore the specific stories and mechanisms at each level.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DILI - NATIONAL CONTEXT PAGE -->
+    <section id="dili" class="page-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Dili - National Context</h2>
+                <p>Understanding the national policy framework and governance structures that enable social accountability</p>
+            </div>
+
+            <div class="content-section">
+                <h3>National Policy Environment</h3>
+                <p>Timor-Leste's commitment to decentralized governance and community participation creates the enabling environment for social accountability initiatives. National health policies emphasize community engagement and local ownership of health service improvements.</p>
+                
+                <div class="theory-elements">
+                    <div class="theory-element">
+                        <h4>Ministry of Health</h4>
+                        <p>National leadership and policy direction for community-based health initiatives</p>
+                    </div>
+                    <div class="theory-element">
+                        <h4>Decentralization Framework</h4>
+                        <p>Legal and institutional structures supporting local governance and accountability</p>
+                    </div>
+                    <div class="theory-element">
+                        <h4>Civil Society Partnership</h4>
+                        <p>National NGOs and international organizations supporting grassroots initiatives</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ERMERA - MUNICIPALITY PAGE -->
+    <section id="ermera" class="page-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ermera Municipality - Supporting Mechanisms</h2>
+                <p>The crucial intermediary level connecting national policy with community implementation</p>
+            </div>
+
+            <div class="content-section">
+                <h3>Municipal Coordination Role</h3>
+                <p>Ermera Municipality serves as the vital link between national health policy and community-level implementation, providing coordination, resources, and technical support to enable effective social accountability mechanisms.</p>
+                
+                <div class="cards-grid">
+                    <div class="story-card">
+                        <h4>Administrative Support</h4>
+                        <p>Municipal health office coordinates resources and provides administrative backing for community initiatives</p>
+                    </div>
+                    
+                    <div class="story-card">
+                        <h4>Capacity Building</h4>
+                        <p>Training and technical assistance for community health workers and local leaders</p>
+                    </div>
+                    
+                    <div class="story-card">
+                        <h4>Inter-Suku Coordination</h4>
+                        <p>Facilitating knowledge sharing and best practice exchange between different Sukus</p>
+                    </div>
+                </div>
+
+                <h3>Key Municipal Actors</h3>
+                <div class="theory-elements">
+                    <div class="theory-element">
+                        <h4>Municipal Administrator</h4>
+                        <p>Local government leadership and policy implementation</p>
+                    </div>
+                    <div class="theory-element">
+                        <h4>District Health Services</h4>
+                        <p>Clinical oversight and health system integration</p>
+                    </div>
+                    <div class="theory-element">
+                        <h4>Community Liaisons</h4>
+                        <p>Bridge between formal systems and traditional structures</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUKU STORY PAGES -->
+    <section id="suku1" class="page-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Suku Story 1 - Community Voices Heard</h2>
+                <p>How social accountability mechanisms transformed health service delivery</p>
+            </div>
+
+            <div class="story-card" style="margin-bottom: 3rem;">
+                <h3>From Silence to Engagement</h3>
+                <p>This Suku's journey shows how community members overcame barriers to voice their concerns about health services, leading to significant improvements in maternal health care and medicine availability.</p>
+                
+                <div class="village-gallery">
+                    <div class="gallery-item">Community Meeting</div>
+                    <div class="gallery-item">Health Facility</div>
+                    <div class="gallery-item">Local Leaders</div>
+                </div>
+                
+                <div class="content-section">
+                    <h4>Key Changes Implemented:</h4>
+                    <ul style="margin: 1rem 0; padding-left: 2rem; color: #666; line-height: 1.8;">
+                        <li>Established monthly community feedback sessions with health staff</li>
+                        <li>Created direct communication channel with district health office</li>
+                        <li>Implemented community scorecards to track service improvements</li>
+                        <li>Trained community members in advocacy and dialogue skills</li>
+                    </ul>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">90%</div>
+                        <div class="stat-label">Increased Satisfaction</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">Issues Addressed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">People Engaged</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="suku2" class="page-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Suku Story 2 - Bridging Traditional and Modern</h2>
+                <p>Integrating traditional healing practices with modern health services</p>
+            </div>
+
+            <div class="story-card" style="margin-bottom: 3rem;">
+                <h3>Respecting Culture, Improving Health</h3>
+                <p>This community found innovative ways to honor traditional healing while improving access to modern medical care, creating a model for culturally sensitive health service delivery.</p>
+                
+                <div class="village-gallery">
+                    <div class="gallery-item">Traditional Ceremony</div>
+                    <div class="gallery-item">Health Workshop</div>
+                    <div class="gallery-item">Community Garden</div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">75%</div>
+                        <div class="stat-label">Cultural Integration</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">New Partnerships</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">Families Reached</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="suku3" class="page-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Suku Story 3 - Youth Leadership</h2>
+                <p>Empowering young people to advocate for health improvements</p>
+            </div>
+
+            <div class="story-card" style="margin-bottom: 3rem;">
+                <h3>The Next Generation Takes Action</h3>
+                <p>Young community members became powerful advocates for change, organizing peer education programs and bridging generational gaps in health understanding.</p>
+                
+                <div class="village-gallery">
+                    <div class="gallery-item">Youth Meeting</div>
+                    <div class="gallery-item">Peer Education</div>
+                    <div class="gallery-item">Community Action</div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">25</div>
+                        <div class="stat-label">Youth Leaders</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Programs Created</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">300+</div>
+                        <div class="stat-label">Peers Educated</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="suku4" class="page-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Suku Story 4 - Women's Collective Action</h2>
+                <p>Women organizing for better maternal and child health services</p>
+            </div>
+
+            <div class="story-card" style="margin-bottom: 3rem;">
+                <h3>Mothers Leading Change</h3>
+                <p>Women in this Suku organized themselves to address critical gaps in maternal health services, creating support networks and advocacy groups that transformed care for mothers and children.</p>
+                
+                <div class="village-gallery">
+                    <div class="gallery-item">Women's Group</div>
+                    <div class="gallery-item">Health Education</div>
+                    <div class="gallery-item">Mother & Child</div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Safe Deliveries</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">45</div>
+                        <div class="stat-label">Women Organized</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">80+</div>
+                        <div class="stat-label">Children Protected</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

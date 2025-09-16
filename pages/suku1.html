@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suku Story 1 | Social Accountability in Timor-Leste</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
@@ -21,7 +23,7 @@
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="dili.html">National Context</a></li>
                 <li><a href="ermera.html">Municipality</a></li>
-                <li><a href="suku1.html">Suku Stories</a></li>
+                <li><a href="suku-stories.html">Suku Stories</a></li>
             </ul>
         </nav>
     </header>
@@ -70,6 +72,20 @@
             </div>
         </div>
     </section>
+
+    <div class="suku-location-map-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Eraulo Location</h2>
+                <p>Geographical context of our community-driven health initiative</p>
+            </div>
+            <div class="suku-location-map-container">
+                <div id="suku-location-map" 
+                     data-suku-name="Eraulo" 
+                     data-coordinates="[-8.765784, 125.443912]"></div>
+            </div>
+        </div>
+    </div>
 
     <script src="../js/script.js"></script>
 </body>

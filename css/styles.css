@@ -548,3 +548,158 @@ nav {
         z-index: 1100;
     }
 }
+
+/* Suku Stories Cards */
+.suku-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+}
+
+.suku-image-placeholder {
+    height: 250px;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.suku-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.suku-card-content {
+    padding: 1.5rem;
+    background: white;
+}
+
+.suku-card-content h3 {
+    color: #00BFA5;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.suku-card-content h4 {
+    color: #FF6B47;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.suku-card-content p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.suku-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.suku-card:hover .suku-image-placeholder img {
+    transform: scale(1.1);
+}
+
+/* Image Carousel Styles */
+.image-carousel-section {
+    margin-top: 3rem;
+    padding: 2rem 0;
+    background-color: #f9f9f9;
+}
+
+.image-carousel {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.carousel-image-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.carousel-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.carousel-image.active {
+    opacity: 1;
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.carousel-prev,
+.carousel-next {
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+    background-color: rgba(0,0,0,0.7);
+}
+
+.carousel-legend {
+    margin-top: 1rem;
+    text-align: center;
+    padding: 1rem;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.carousel-text {
+    display: none;
+    color: #666;
+    line-height: 1.6;
+}
+
+.carousel-text.active {
+    display: block;
+}
+
+/* Suku Location Map */
+.suku-location-map-section {
+    margin-top: 3rem;
+    padding: 2rem 0;
+    background-color: #f9f9f9;
+}
+
+.suku-location-map-container {
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#suku-location-map {
+    height: 400px;
+    width: 100%;
+}

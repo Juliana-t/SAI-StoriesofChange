@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suku Story 3 | Social Accountability in Timor-Leste</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
@@ -21,7 +23,7 @@
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="dili.html">National Context</a></li>
                 <li><a href="ermera.html">Municipality</a></li>
-                <li><a href="suku1.html">Suku Stories</a></li>
+                <li><a href="suku-stories.html">Suku Stories</a></li>
             </ul>
         </nav>
     </header>
@@ -58,9 +60,72 @@
                     </div>
                 </div>
             </div>
+
+            <div class="image-carousel-section">
+                <div class="image-carousel">
+                    <div class="carousel-controls">
+                        <button class="carousel-prev">&lt;</button>
+                        <button class="carousel-next">&gt;</button>
+                    </div>
+                    <div class="carousel-image-container">
+                        <img src="../assets/health-worker-1.jpg" alt="Timorese Health Worker" class="carousel-image active">
+                        <img src="../assets/health-worker-2.jpg" alt="Community Health Training" class="carousel-image">
+                        <img src="../assets/health-worker-3.jpg" alt="Youth Health Advocacy" class="carousel-image">
+                    </div>
+                    <div class="carousel-legend">
+                        <p class="carousel-text active">Young health workers in Dotik collaborate to develop innovative community health programs, bridging traditional knowledge with modern medical practices.</p>
+                        <p class="carousel-text">Community health training session empowers local youth to become health advocates, focusing on peer-to-peer education and awareness.</p>
+                        <p class="carousel-text">Youth-led health advocacy group discussing strategies to improve local health services and community engagement.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="suku-location-map-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Dotik Location</h2>
+                        <p>Geographical context of our community-driven health initiative</p>
+                    </div>
+                    <div class="suku-location-map-container">
+                        <div id="suku-location-map" 
+                             data-suku-name="Dotik" 
+                             data-coordinates="[-9.070729, 125.916362]"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <script src="../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('.image-carousel');
+            const images = carousel.querySelectorAll('.carousel-image');
+            const texts = carousel.querySelectorAll('.carousel-text');
+            const prevBtn = carousel.querySelector('.carousel-prev');
+            const nextBtn = carousel.querySelector('.carousel-next');
+            let currentIndex = 0;
+
+            function showImage(index) {
+                // Remove active class from all images and texts
+                images.forEach(img => img.classList.remove('active'));
+                texts.forEach(text => text.classList.remove('active'));
+
+                // Add active class to current image and text
+                images[index].classList.add('active');
+                texts[index].classList.add('active');
+            }
+
+            nextBtn.addEventListener('click', function() {
+                currentIndex = (currentIndex + 1) % images.length;
+                showImage(currentIndex);
+            });
+
+            prevBtn.addEventListener('click', function() {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                showImage(currentIndex);
+            });
+        });
+    </script>
 </body>
 </html>

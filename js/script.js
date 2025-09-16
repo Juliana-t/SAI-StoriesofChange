@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Existing code for page navigation and interactions...
 
     // Initialize Leaflet Map
-    const map = L.map('timor-map').setView([-8.803341, 125.870604], 9);
+    const map = L.map('timor-map').setView([-8.823535, 125.375248], 10);
 
     // Use a simple, minimal base layer
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -135,52 +135,46 @@ document.addEventListener('DOMContentLoaded', function() {
     // Locations with their coordinates and details
     const locations = [
         { 
-            name: 'Timor-Leste', 
-            coords: [-8.803341, 125.870604], 
-            type: 'country',
-            popupContent: 'Timor-Leste - National Overview'
-        },
-        { 
             name: 'Dili', 
             coords: [-8.561167, 125.564775], 
             type: 'capital',
             popupContent: 'Dili - National Context',
-            dataLocation: 'dili'
+            pageUrl: 'pages/dili.html'
         },
         { 
             name: 'Ermera Municipality', 
             coords: [-8.823535, 125.375248], 
             type: 'municipality',
             popupContent: 'Ermera Municipality - Supporting Mechanisms',
-            dataLocation: 'ermera'
+            pageUrl: 'pages/ermera.html'
         },
         { 
-            name: 'Suku 1 - Eraulo', 
+            name: 'Eraulo', 
             coords: [-8.765784, 125.443912], 
             type: 'suku',
-            popupContent: 'Suku 1 - Community Voices Heard',
-            dataLocation: 'suku1'
+            popupContent: 'Eraulo: Connected Community',
+            pageUrl: 'pages/suku1.html'
         },
         { 
-            name: 'Suku 2 - Riheu', 
+            name: 'Riheu', 
             coords: [-8.751652, 125.398734], 
             type: 'suku',
-            popupContent: 'Suku 2 - Bridging Traditional and Modern',
-            dataLocation: 'suku2'
+            popupContent: 'Riheu: Inclusive Health',
+            pageUrl: 'pages/suku2.html'
         },
         { 
-            name: 'Suku 3', 
+            name: 'Dotik', 
             coords: [-9.070729, 125.916362], 
             type: 'suku',
-            popupContent: 'Suku 3 - Youth Leadership',
-            dataLocation: 'suku3'
+            popupContent: 'Dotik: Resilient Thinking',
+            pageUrl: 'pages/suku3.html'
         },
         { 
-            name: 'Suku 4 - Haupu', 
+            name: 'Haupu', 
             coords: [-8.818867, 125.424750], 
             type: 'suku',
-            popupContent: 'Suku 4 - Women\'s Collective Action',
-            dataLocation: 'suku4'
+            popupContent: 'Haupu: Community in Action',
+            pageUrl: 'pages/suku4.html'
         }
     ];
 
@@ -205,22 +199,76 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add popup with location details
         marker.bindPopup(location.popupContent);
 
-        // Add click event to navigate to corresponding section if data-location exists
-        if (location.dataLocation) {
+        // Add click event to navigate to corresponding page
+        if (location.pageUrl) {
             marker.on('click', function() {
-                const targetSection = document.getElementById(location.dataLocation);
-                if (targetSection) {
-                    // Hide all sections
-                    const sections = document.querySelectorAll('.page-section');
-                    sections.forEach(section => {
-                        section.classList.remove('active');
-                    });
-                    
-                    // Show target section
-                    targetSection.classList.add('active');
-                    window.scrollTo(0, 0);
-                }
+                window.location.href = location.pageUrl;
             });
         }
     });
+});
+
+// Function to create Suku location map
+function createSukuMap(mapElementId, coordinates, sukuName) {
+    // Ensure Leaflet is available
+    if (typeof L === 'undefined') {
+        console.error('Leaflet library not loaded');
+        return null;
+    }
+
+    // Create map with a slight delay to ensure DOM is fully loaded
+    const map = L.map(mapElementId, {
+        center: coordinates,
+        zoom: 12,
+        zoomControl: true,
+        attributionControl: true
+    });
+
+    // Use a simple, minimal base layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors',
+        maxZoom: 19,
+        opacity: 0.7
+    }).addTo(map);
+
+    // Add marker for Suku location
+    L.marker(coordinates, {
+        icon: L.divIcon({
+            className: 'custom-marker suku-marker',
+            html: '',
+            iconSize: [20, 20],
+            iconAnchor: [10, 10]
+        })
+    }).addTo(map)
+    .bindTooltip(sukuName, {
+        permanent: false,
+        direction: 'top',
+        className: 'location-tooltip'
+    });
+
+    return map;
+}
+
+// Initialize Suku maps when on Suku pages
+document.addEventListener('DOMContentLoaded', function() {
+    // Ensure Leaflet is loaded
+    if (typeof L !== 'undefined') {
+        const sukuMapElement = document.getElementById('suku-location-map');
+        if (sukuMapElement) {
+            // Parse coordinates, handling potential JSON parsing errors
+            try {
+                const sukuName = sukuMapElement.getAttribute('data-suku-name');
+                const coordinates = JSON.parse(sukuMapElement.getAttribute('data-coordinates'));
+                
+                // Slight delay to ensure all resources are loaded
+                setTimeout(() => {
+                    createSukuMap('suku-location-map', coordinates, sukuName);
+                }, 100);
+            } catch (error) {
+                console.error('Error initializing Suku map:', error);
+            }
+        }
+    } else {
+        console.error('Leaflet library not loaded');
+    }
 });
